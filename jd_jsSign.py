@@ -8,8 +8,8 @@ import os
 import time, datetime
 from urllib.parse import unquote
 
-cookie_path = "../config/env.sh"
-token = os.environ.get('PUSH_PLUS_TOKEN')
+cookie_path = "/jd/config/config.sh"
+token = ""
 
 t = time.time()
 time_stamp = int(round(time.time() * 1000))
@@ -17,7 +17,7 @@ date_stamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')[0:-3]
 
 
 class Util(object):
-    """
+    
     def get_cookies(self):
         
         # 获取指定路径下的cookie_list
@@ -38,7 +38,7 @@ class Util(object):
         else:
             print("get_cookies:获取cookie文件失败。请确认cookie_path得路径是否正确")
             return False
-    """
+    
     def is_chinese(self, string):
         """
         检查整个字符串是否包含中文
@@ -58,7 +58,7 @@ class Util(object):
         :return:
         """
 
-        urls = "http://www.pushplus.plus/send?token={}&title={}&content={}&template=html".format(token, title,
+        urls = "http://pushplus.hxtrip.com/send?token={}&title={}&content={}&template=html".format(token, title,
                                                                                                    content)
         push_resp = requests.get(urls)
         if push_resp.status_code == 200:
@@ -159,9 +159,9 @@ class JdjsSign(object):
         运行、遍历cookie_list调用签到方法进行签到。拼接签到结果一起通知
         :return:
         """
-        # cookie_list = util.get_cookies()
-        cookie_01 = os.environ.get('Cookie1')
-        cookie_list = [cookie_01]
+        cookie_list = util.get_cookies()
+        #cookie_01 = os.environ.get('Cookie1')
+        #cookie_list = [cookie_01]
         if cookie_list:
             total_count = len(cookie_list)
             index = 1
@@ -169,10 +169,14 @@ class JdjsSign(object):
             if cookie_list:
 
                 for cookie in cookie_list:
-                    print(cookie)
+                    print(goods_resp.content.decode("utf-8"))
+                    pt_pattern = ("pin=(.*);")
+                    pt_pin = re.findall(pt_pattern, cookie)[0]
+                    pt_pin = unquote(pt_pin)
+                    print("开始做pin为{}的用户的任务".format(pt_pin))
                     sign_result = self.sign(cookie)
                     # 拼接li标签，消息详情内以li标签列表形式显示
-                    result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, cookie, sign_result)
+                    result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, pt_pin, sign_result)
                     index += 1
                     push_content += result_content
             if token:
