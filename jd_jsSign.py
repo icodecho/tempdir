@@ -171,7 +171,7 @@ class JdjsSign(object):
                             print(sign_resp.content.decode("utf-8"))
                         if len(goods_list) > 1:
                             sign_result += sign_result + "\n"
-                    return sign_result + "\n" + sign_resp + "\n" + sign_info + "\n"
+                    return sign_result + "\n" + sign_resp.content.decode("utf-8") + "\n" + sign_info + "\n"
             else:
                 sign_result = "获取个人免单列表接口Msg响应异常:{}".format(goods_err_msg)
                 print(goods_resp)
