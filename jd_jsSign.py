@@ -31,7 +31,7 @@ class Util(object):
             if len(token_list) >= 1:
                 print("从配置文件中获取到{}个token".format(len((token_list))))
                 print(token_list)
-                return token_list[0]
+                return token_list[0][0:(len(token_list[0])-1)]
             else:
                 print("get_token:获取token失败。")
                 return False
