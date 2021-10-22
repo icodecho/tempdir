@@ -169,7 +169,7 @@ class JdjsSign(object):
             if cookie_list:
 
                 for cookie in cookie_list:
-                    print(goods_resp.content.decode("utf-8"))
+                    #print(goods_resp.content.decode("utf-8"))
                     pt_pattern = ("pin=(.*);")
                     pt_pin = re.findall(pt_pattern, cookie)[0]
                     pt_pin = unquote(pt_pin)
