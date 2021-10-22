@@ -9,7 +9,6 @@ import time, datetime
 from urllib.parse import unquote
 
 cookie_path = "/jd/config/config.sh"
-token = ""
 
 t = time.time()
 time_stamp = int(round(time.time() * 1000))
@@ -182,6 +181,7 @@ class JdjsSign(object):
         :return:
         """
         cookie_list = util.get_cookies()
+        token = util.get_token()
         #cookie_01 = os.environ.get('Cookie1')
         #cookie_list = [cookie_01]
         if cookie_list:
