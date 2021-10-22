@@ -17,11 +17,12 @@ date_stamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')[0:-3]
 
 
 class Util(object):
+    """
     def get_cookies(self):
-        """
-        获取指定路径下的cookie_list
-        :return:
-        """
+        
+        # 获取指定路径下的cookie_list
+        # :return:
+        
         cookie_exists = os.path.exists(cookie_path)
         if cookie_exists:
             with open(cookie_path, "r", encoding="utf-8") as f:
@@ -37,7 +38,7 @@ class Util(object):
         else:
             print("get_cookies:获取cookie文件失败。请确认cookie_path得路径是否正确")
             return False
-
+    """
     def is_chinese(self, string):
         """
         检查整个字符串是否包含中文
