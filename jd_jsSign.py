@@ -9,7 +9,7 @@ import time, datetime
 from urllib.parse import unquote
 
 cookie_path = "../config/env.sh"
-token = ""
+token = os.environ.get('PUSH_PLUS_TOKEN')
 
 t = time.time()
 time_stamp = int(round(time.time() * 1000))
@@ -58,7 +58,7 @@ class Util(object):
         :return:
         """
 
-        urls = "http://pushplus.hxtrip.com/send?token={}&title={}&content={}&template=html".format(token, title,
+        urls = "http://www.pushplus.plus/send?token={}&title={}&content={}&template=html".format(token, title,
                                                                                                    content)
         push_resp = requests.get(urls)
         if push_resp.status_code == 200:
@@ -170,13 +170,9 @@ class JdjsSign(object):
 
                 for cookie in cookie_list:
                     print(cookie)
-                    pt_pattern = ("pin=(.*);")
-                    pt_pin = re.findall(pt_pattern, cookie)[0]
-                    pt_pin = unquote(pt_pin)
-                    print("开始做pin为{}的用户的任务".format(pt_pin))
                     sign_result = self.sign(cookie)
                     # 拼接li标签，消息详情内以li标签列表形式显示
-                    result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, pt_pin, sign_result)
+                    result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, cookie, sign_result)
                     index += 1
                     push_content += result_content
             if token:
