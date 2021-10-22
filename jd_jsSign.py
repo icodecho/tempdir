@@ -177,6 +177,7 @@ class JdjsSign(object):
                     sign_result = self.sign(cookie)
                     # 拼接li标签，消息详情内以li标签列表形式显示
                     result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, pt_pin, sign_result)
+                    print(result_content)
                     index += 1
                     push_content += result_content
             if token:
