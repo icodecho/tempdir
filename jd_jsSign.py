@@ -169,6 +169,7 @@ class JdjsSign(object):
             if cookie_list:
 
                 for cookie in cookie_list:
+                    print(cookie)
                     pt_pattern = ("pin=(.*);")
                     pt_pin = re.findall(pt_pattern, cookie)[0]
                     pt_pin = unquote(pt_pin)
