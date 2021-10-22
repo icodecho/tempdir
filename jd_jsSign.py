@@ -26,7 +26,7 @@ class Util(object):
         if cookie_exists:
             with open(cookie_path, "r", encoding="utf-8") as f:
                 data = f.read()
-            r = re.compile(r"pushplus_hxtrip_com=.*d", re.M | re.S | re.I)
+            r = re.compile(r"pushplus_hxtrip_com=.*?d", re.M | re.S | re.I)
             token_list = re.findall(r, data)
             if len(token_list) >= 1:
                 print("从配置文件中获取到{}个token".format(len((token_list))))
