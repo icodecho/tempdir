@@ -26,14 +26,14 @@ class Util(object):
         if cookie_exists:
             with open(cookie_path, "r", encoding="utf-8") as f:
                 data = f.read()
-            r = re.compile(r"pushplus_hxtrip_com=.*?&", re.M | re.S | re.I)
+            r = re.compile(r"pushplus_hxtrip_com=.*?;", re.M | re.S | re.I)
             token_list = re.findall(r, data)
             if len(token_list) >= 1:
                 print("从配置文件中获取到{}个token".format(len((token_list))))
                 print(token_list)
                 token_list_0 = token_list[0]
                 print(token_list_0)
-                token_list_0=token_list_0[0:(len(token_list[0])-1)]
+                token_list_0=token_list_0[len("pushplus_hxtrip_com="):(len(token_list[0])-1)]
                 print(token_list_0)
                 return token_list_0
             else:
