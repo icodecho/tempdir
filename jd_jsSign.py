@@ -18,9 +18,31 @@ date_stamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S%f')[0:-3]
 
 class Util(object):
     
-    def get_cookies(self):
+    def get_token(self):
         
         # 获取指定路径下的cookie_list
+        # :return:
+        
+        cookie_exists = os.path.exists(cookie_path)
+        if cookie_exists:
+            with open(cookie_path, "r", encoding="utf-8") as f:
+                data = f.read()
+            r = re.compile(r"#pushplus_hxtrip_com=.*?;", re.M | re.S | re.I)
+            token_list = re.findall(r, data)
+            if len(token_list) >= 1:
+                print("从配置文件中获取到{}个token".format(len((token_list))))
+                print(token_list)
+                return token_list[0]
+            else:
+                print("get_token:获取token失败。")
+                return False
+        else:
+            print("get_cookies:获取cookie文件失败。请确认cookie_path得路径是否正确")
+            return False
+    
+    def get_cookies(self):
+        
+        # 获取指定路径下的token_list
         # :return:
         
         cookie_exists = os.path.exists(cookie_path)
@@ -177,7 +199,6 @@ class JdjsSign(object):
                     sign_result = self.sign(cookie)
                     # 拼接li标签，消息详情内以li标签列表形式显示
                     result_content = "<li>❤账号{}：{}签到结果为：{}</li>".format(index, pt_pin, sign_result)
-                    print(result_content)
                     index += 1
                     push_content += result_content
             if token:
