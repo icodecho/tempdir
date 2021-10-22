@@ -9,9 +9,6 @@ import time, datetime
 from urllib.parse import unquote
 
 cookie_path = "/jd/config/config.sh"
-util = Util()
-cookie_list = util.get_cookies()
-token = util.get_token()
 
 t = time.time()
 time_stamp = int(round(time.time() * 1000))
@@ -99,7 +96,9 @@ class Util(object):
             print("推送失败，失败的内容是{}".format(resp_content))
 
 
-
+util = Util()
+cookie_list = util.get_cookies()
+token = util.get_token()
 
 class JdjsSign(object):
     def sign(self, cookie):
