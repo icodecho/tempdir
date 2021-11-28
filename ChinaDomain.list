@@ -3,5 +3,5 @@
 # MyList
 DOMAIN-SUFFIX,cnpmjs.org
 DOMAIN-SUFFIX,ghproxy.com
-DOMAIN-SUFFIX,workers.dev
+# DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,cdn.staticaly.com
