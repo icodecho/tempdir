@@ -1,5 +1,5 @@
 /*
-cron 10 8-22/1 * * * ks_js.js
+#stop c#r#o#n 10 8-22/1 * * * ks_js.js
 
 
 
