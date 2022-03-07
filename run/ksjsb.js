@@ -1,5 +1,5 @@
 /*
-cron 22 7-22/1 * * * ksjsb.js
+cron * 7-22/1 * * * ksjsb.js
 IOS/安卓： 快手极速版
 邀请链接(如果直接扫打不开，可以下载快手极速版后用APP的扫一扫)：
 https://raw.fastgit.org/leafxcy/JavaScript/main/ksjsb.jpg
