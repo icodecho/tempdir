@@ -1,5 +1,5 @@
 /*
-#stop c#r#o#n 10 8-22/1 * * * ks_js.js
+cr删on 删10 删8-删22/1 * 删* * ks删_js.js
 
 
 
