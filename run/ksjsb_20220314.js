@@ -1,5 +1,5 @@
 /*
-cron 12 7-22/1 * * * ksjsb.js
+cr屏蔽on 12 7屏蔽-22/1 * * * ks屏蔽jsb.js
 IOS/安卓： 快手极速版
 邀请链接(如果直接扫打不开，可以下载快手极速版后用APP的扫一扫)：
 https://raw.fastgit.org/leafxcy/JavaScript/main/ksjsb.jpg
