@@ -3,6 +3,6 @@
     "format":".lzma",
     "main":"\\WinXray.exe",
     "updater":"\\WinXray.exe",
-    "url":"https://raw.githubusercontent.com/TheMRLL/winxray/main/release/update/",
+    "url":"https://ghproxy.com/https://raw.githubusercontent.com/TheMRLL/winxray/main/release/update/",
     "version":"4.4"
 }
