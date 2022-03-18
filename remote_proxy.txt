@@ -1,1 +1,3 @@
-http://Og==@127.0.0.1:1081#winxray
+proxies:
+  # 无需认证
+  - {name: winxray, type: http, server: 127.0.0.1, port: 1081 }
