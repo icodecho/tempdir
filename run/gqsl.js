@@ -1,6 +1,6 @@
 /**
  * 广汽三菱 
-cron * 7 * * * gqsl.js
+cron 8 7 * * * gqsl.js
 #20220327
  * 
  * 广汽三菱App 
