@@ -22,7 +22,7 @@ kuaishou.api_st=zzzzzzzzz;'
 重写：
 [task_local]
 #快手极速版
-38 7-22 * * * https://raw.fastgit.org/leafxcy/JavaScript/main/ksjsb.js, tag=快手极速版, enabled=true
+屏蔽38 7-屏蔽22 * 屏蔽* * https://raw.fas屏蔽tgit.org/leafxcy/JavaScript/main/ksj屏蔽sb.js, tag=快手极速版, ena屏蔽bled=true
 [rewrite_local]
 appsupport/yoda/biz/info url script-request-header https://raw.fastgit.org/leafxcy/JavaScript/main/ksjsb.js
 ksapp/client/package/renew url script-request-header https://raw.fastgit.org/leafxcy/JavaScript/main/ksjsb.js
