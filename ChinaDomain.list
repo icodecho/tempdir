@@ -6,3 +6,5 @@ DOMAIN-SUFFIX,ghproxy.com
 DOMAIN-SUFFIX,sub.evilcode.workers.dev
 DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,cdn.staticaly.com
+DOMAIN-SUFFIX,hub.fastgit.xyz
+DOMAIN-SUFFIX,raw.fastgit.org
