@@ -1,5 +1,5 @@
 /*
-cron 12 7-22/1 * * * ksjsb_20220513.js
+屏蔽cr屏蔽on 12 7-屏蔽22/1 * * * ksjsb_20屏蔽220513.js
 2022.05.13更新
  *
  * 脚本地址: https://raw.githubusercontent.com/yml2213/javascript/master/ksjsb/ksjsb.js
