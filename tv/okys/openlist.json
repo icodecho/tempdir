@@ -1,0 +1,20 @@
+[
+  {
+    "name": "139cloud-f",
+    "server": "https://alist.orzdns.dpdns.org/",
+    "startPage": "/",
+    "realStartPage": "/139cloud-f",
+    "search": true,
+	"username": "tv",
+    "password": "justfortest@@@123"
+  },
+  {
+    "name": "139cloud-p",
+    "server": "https://alist.orzdns.dpdns.org/",
+    "startPage": "/",
+    "realStartPage": "/139cloud-p",
+    "search": true,
+	"username": "tv",
+    "password": "justfortest@@@123"
+  }
+]
