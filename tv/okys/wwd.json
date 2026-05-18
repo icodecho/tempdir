@@ -1,5 +1,15 @@
 {
+    "spider": "",
+    "wallpaper": "",
     "sites": [{
+            "key": "芒果TV-少儿",
+            "name": "芒果TV-少儿",
+            "type": 3,
+            "api": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/drpy2.min.js",
+            "searchable": 1,
+            "ext": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/mgtv-child.js"
+        },
+		{
             "key": "汪汪队",
             "name": "汪汪队｜合集",
             "type": 3,
@@ -14,7 +24,7 @@
         }
     ],
     "rules": [],
-	//doh
+    //doh
     "doh": [{
             "name": "alidns",
             "url": "https://dns.alidns.com/dns-query",
@@ -30,17 +40,15 @@
             ]
         }
     ],
-	//直播
-	"lives": [
-        {
+    //直播
+    "lives": [{
             "name": "develop202",
             "type": 0,
             "url": "https://raw-githubusercontent-com-gh.2x.nz/develop202/migu_video/main/interface.txt",
             "playerType": 2,
             "epg": "http://diyp5.112114.xyz/?ch={name}&date={date}",
             "logo": "https://epg.112114.xyz/logo/{name}.png"
-        },
-        {
+        }, {
             "name": "Kimentanm",
             "type": 0,
             "url": "https://raw-githubusercontent-com-gh.2x.nz/Kimentanm/aptv/master/m3u/iptv.m3u",
@@ -51,12 +59,36 @@
     "parses": [{
             "name": "ck解析",
             "type": 0,
-            "url": "https://www.ckplayer.vip/jiexi/?url="
+            "url": "https://www.ckplayer.vip/jiexi/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.3124.68"
+                }
+            }
         }, {
             "name": "虾米解析",
             "type": 0,
-            "url": "https://jx.xmflv.com/?url="
-        }
+            "url": "https://jx.xmflv.com/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.57"
+                }
+            }
+
+        }, {
+            "name": "咸鱼解析",
+            "type": 0,
+            "url": "https://jx.xymp4.cc/?url=",
+            "ext": {
+                "flag": ["qq", "腾讯", "qiyi", "爱奇艺", "奇艺", "youku", "优酷", "mgtv", "芒果", "letv", "乐视", "pptv", "PPTV", "sohu", "bilibili", "哔哩哔哩", "哔哩"],
+                "ext": {
+                    "header": {
+                        "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36",
+                        "referer": "https://jx.xyflv.cc/"
+                    }
+                }
+            }
+        },
     ],
     //VIP解析标识
     "flags": [
@@ -70,7 +102,7 @@
         "pptv",
         "mgtv",
         "wasu"
-	],
+    ],
     //IJK播放器解码
     "ijk": [{
             "group": "软解码",
@@ -267,5 +299,5 @@
         "v4.sogowan.com",
         "v5.sogowan.com",
         "v6.sogowan.com"
-	]
+    ]
 }
