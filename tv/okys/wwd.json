@@ -17,7 +17,6 @@
         }
     ],
     "rules": [],
-    //doh
     "doh": [{
             "name": "alidns",
             "url": "https://dns.alidns.com/dns-query",
@@ -33,7 +32,6 @@
             ]
         }
     ],
-    //直播
     "lives": [{
             "name": "develop202",
             "type": 0,
@@ -48,7 +46,6 @@
             "playerType": 2
         }
     ],
-    //VIP解析
     "parses": [{
             "name": "ck解析",
             "type": 0,
@@ -83,7 +80,6 @@
             }
         },
     ],
-    //VIP解析标识
     "flags": [
         "youku",
         "qq",
@@ -96,7 +92,6 @@
         "mgtv",
         "wasu"
     ],
-    //IJK播放器解码
     "ijk": [{
             "group": "软解码",
             "options": [{
@@ -227,7 +222,6 @@
             ]
         }
     ],
-    //解析广告过滤
     "ads": ["mimg.0c1q0l.cn",
         "www.googletagmanager.com",
         "www.google-analytics.com",
