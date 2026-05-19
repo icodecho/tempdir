@@ -5,7 +5,7 @@
             "key": "mgtv-child",
             "name": "芒果TV-少儿",
             "type": 3,
-            "api": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/drpy2.js",
+            "api": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/drpy2.min.js",
             "searchable": 0,
             "quickSearch": 0,
             "filterable": 1,
