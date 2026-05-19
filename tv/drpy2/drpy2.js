@@ -1,11 +1,11 @@
-import cheerio from "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/cheerio.min.js";
-import "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/crypto-js.js";
-import "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/jsencrypt.js";
-import 模板 from "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/模板.js";
+import cheerio from "./cheerio.min.js";
+import "./crypto-js.js";
+import "./jsencrypt.js";
+import 模板 from "./模板.js";
 import {
     gbkTool
 }
-from "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/gbk.js";
+from "./gbk.js";
 function init_test() {
     console.log("init_test_start");
     console.log("当前版本号:" + VERSION);
