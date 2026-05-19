@@ -1,5 +1,5 @@
 {
-	"spider": "",
+	"spider": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/okys/custom_spider.jar",
 	"wallpaper": "",
 	"sites": [{
 		"key": "汪汪队",
@@ -18,7 +18,7 @@
    "name": "mgtv-child(drpy)",
    "type": 3,
    "api": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/drpy2.min.js",
-   "searchable": 2,
+   "searchable": 0,
    "quickSearch": 0,
    "filterable": 1,
    "ext": "https://raw-githubusercontent-com-gh.2x.nz/icodecho/tempdir/main/tv/drpy2/mgtv-child.js"
