@@ -42,7 +42,7 @@ var rule = {
     二级: `js:
 //let html = JSON.parse(fetch(input, fetch_params));
 //let the_url = input;
-log(input);
+print(input);
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
 //let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
 let the_origin_url = the_url;
