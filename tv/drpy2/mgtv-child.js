@@ -46,6 +46,9 @@ if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
     let the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
+	print("-------------");
+	print(the_info_url);
+	print("-------------");
 	let the_req_ret_raw = fetch(the_info_url, the_reqOptions01);
 	print(the_req_ret_raw);
     let the_info_data = JSON.parse(the_req_ret_raw);
