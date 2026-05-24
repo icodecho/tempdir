@@ -31,7 +31,7 @@ var rule = {
 //var the_url = input;
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
 var the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
-var the_regex = /\/b\/(\d+)\/(\d+)\.html/;
+var the_regex = new RegExp('/b/(\d+)/(\d+)\.html');
 print(input);
 var the_match = the_origin_url.match(the_regex);
 var the_vid;
