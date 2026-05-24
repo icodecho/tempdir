@@ -40,7 +40,7 @@ let base_vod;
 if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
-    the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
+    let the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
     let the_info_data = JSON.parse(fetch(the_info_url));
     if (the_info_data.code == 200) {
         let the_vdata = the_info_data.data;
