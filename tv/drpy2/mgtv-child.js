@@ -37,7 +37,7 @@ let the_match = the_origin_url.match(the_regex);
 let the_vid;
 let the_cid;
 let base_vod;
-let the_reqHeaders = new Headers();
+let the_reqHeaders = {};
 the_reqHeaders.append("accept", "application/json, text/plain, */*");
 the_reqHeaders.append("origin", "https://www.mgtv.com");
 the_reqHeaders.append("referer", "https://www.mgtv.com/");
