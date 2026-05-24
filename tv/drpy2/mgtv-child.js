@@ -31,7 +31,7 @@ var rule = {
 //var the_url = input;
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
 var the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
-var the_regex = new RegExp('/b/(\d+)/(\d+)\.html');
+var the_regex = new RegExp('/b/(\\d+)/(\\d+)\\.html');
 print(input);
 var the_match = the_origin_url.match(the_regex);
 var the_vid;
@@ -42,6 +42,9 @@ var the_reqOptions01 = {
     method: "GET",
     headers: the_reqHeaders
 };
+print("-------------");
+print(the_match);
+print("-------------");
 if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
