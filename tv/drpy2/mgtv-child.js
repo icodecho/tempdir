@@ -33,7 +33,7 @@ var rule = {
 var the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
 var the_regex = new RegExp('/\d+/\d+\.html');
 print(input);
-var the_match = the_origin_url.match(the_regex);
+var the_match = the_origin_url.match(/\/b\/(\d+)\/(\d+)/);
 var the_vid;
 var the_cid;
 var base_vod;
