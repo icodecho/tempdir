@@ -27,18 +27,18 @@ var rule = {
     //一级 列表;标题;图片;描述;链接;详情 其中最后一个参数选填
     一级: 'div[data-track-id];a&&img&&alt;a&&img&&src;a&&img&&alt;a&&href',
     二级: `js:
-//let html = JSON.parse(fetch(input, fetch_params));
-//let the_url = input;
+//var html = JSON.parse(fetch(input, fetch_params));
+//var the_url = input;
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
-let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
-let the_regex = /\/b\/(\d+)\/(\d+)\.html/;
+var the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
+var the_regex = /\/b\/(\d+)\/(\d+)\.html/;
 print(input);
-let the_match = the_origin_url.match(the_regex);
-let the_vid;
-let the_cid;
-let base_vod;
-let the_reqHeaders={"accept":"application/json, text/plain, */*","origin": "https://www.mgtv.com","referer": "https://www.mgtv.com/","user-agent": PC_UA};
-let the_reqOptions01 = {
+var the_match = the_origin_url.match(the_regex);
+var the_vid;
+var the_cid;
+var base_vod;
+var the_reqHeaders={"accept":"application/json, text/plain, */*","origin": "https://www.mgtv.com","referer": "https://www.mgtv.com/","user-agent": PC_UA};
+var the_reqOptions01 = {
     method: "GET",
     headers: the_reqHeaders
 };
