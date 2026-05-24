@@ -41,7 +41,7 @@ let the_reqHeaders = {};
 the_reqHeaders.append("accept", "application/json, text/plain, */*");
 the_reqHeaders.append("origin", "https://www.mgtv.com");
 the_reqHeaders.append("referer", "https://www.mgtv.com/");
-the_reqHeaders.append("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36");
+the_reqHeaders.append("user-agent", PC_UA);
 let the_reqOptions01 = {
     method: "GET",
     headers: the_reqHeaders
