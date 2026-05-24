@@ -44,8 +44,7 @@ the_reqHeaders.append("referer", "https://www.mgtv.com/");
 the_reqHeaders.append("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36");
 let the_reqOptions01 = {
     method: "GET",
-    headers: the_reqHeaders,
-    redirect: "follow"
+    headers: the_reqHeaders
 };
 if (the_match) {
     the_cid = the_match[1]; // "611790"
