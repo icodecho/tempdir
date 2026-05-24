@@ -32,6 +32,7 @@ var rule = {
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
 let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
 let the_regex = /\/b\/(\d+)\/(\d+)\.html/;
+print("调试日志");
 print(input);
 let the_match = the_origin_url.match(the_regex);
 let the_vid;
@@ -41,8 +42,10 @@ if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
     let the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
-    let the_info_data = JSON.parse(fetch(the_info_url, fetch_params));
-    if (the_info_data.code == 200) {
+    let the_info_data = JSON.parse(fetch(the_info_url, {method: "GET",redirect: "follow"}));
+    print("调试日志");
+	print(the_info_data);
+	if (the_info_data.code == 200) {
         let the_vdata = the_info_data.data;
         let the_vdata_info = the_vdata.info;
         base_vod = {
@@ -60,7 +63,7 @@ if (the_match) {
     let the_size = 30;
     //https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=21155332&page=0&size=30&platform=4&src=mgtv
     let the_playlist_url = "https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=" + the_vid + "&page=" + the_page + "&size=" + the_size + "&platform=4&src=mgtv";
-    let the_playlist_data = JSON.parse(fetch(the_playlist_url, fetch_params));
+    let the_playlist_data = JSON.parse(fetch(the_playlist_url, {method: "GET",redirect: "follow"}));
     if (the_playlist_data.code == 200) {
         let the_pdata = the_playlist_data.data;
         let the_ptotal = the_pdata.total;
