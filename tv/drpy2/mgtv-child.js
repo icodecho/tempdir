@@ -32,7 +32,7 @@ var rule = {
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
 var the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
 print(input);
-var the_match = the_origin_url.match(new RegExp('/b/(\d+)/(\d+)\.html'));
+var the_match = the_origin_url.match(new RegExp('/b/(\\d+)/(\\d+)\\.html'));
 var the_vid;
 var the_cid;
 var base_vod;
