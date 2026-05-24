@@ -26,19 +26,82 @@ var rule = {
     推荐: 'div[data-track-id];a&&img&&alt;a&&img&&src;a&&img&&alt;a&&href',
     //一级 列表;标题;图片;描述;链接;详情 其中最后一个参数选填
     一级: 'div[data-track-id];a&&img&&alt;a&&img&&src;a&&img&&alt;a&&href',
-/******
-    二级: {
-        title: 'div.introduce&&div.content&&p.name&&Text',
-        img: 'div.introduce&&div.img&&a&&img&&src',
-        desc: 'div.introduce-items&&p:eq(0)&&Text;div.introduce-items&&p:eq(1)&&Text;div.introduce-items&&p:eq(2)&&Text;div.introduce-items&&p:eq(3)&&Text',
-        content: 'div.introduce&&div.content&&p.e-txthide2&&Text',
-        tabs: '',
-        lists: '',
-        tab_text: '',
-        list_text: '',
-        list_url: ''
-    },
-******/
-    二级: 'js:let the_origin_url="https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";let the_regex=/\/b\/(\d+)\/(\d+)\.html/;let the_match=the_origin_url.match(the_regex);let the_vid;let the_cid;let base_vod;if(the_match){the_cid=the_match[1];the_vid=the_match[2];the_info_url="https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid="+the_vid+"&cid="+the_cid+"&type=b&_support=10000000";let the_info_data=JSON.parse(fetch(the_info_url));if(the_info_data.code==200){let the_vdata=the_info_data.data;let the_vdata_info=the_vdata.info;base_vod={vod_id:the_origin_url,vod_name:the_vdata_info.title,type_name:the_vdata_info.detail.kind,vod_actor:the_vdata_info.detail.leader,vod_director:the_vdata_info.detail.presenter,vod_content:the_vdata_info.detail.story,vod_remarks:the_vdata_info.detail.join(","),vod_pic:the_vdata_info.clipImage}}let the_page=0;let the_size=30;let the_playlist_url="https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id="+the_vid+"&page="+the_page+"&size="+the_size+"&platform=4&src=mgtv";let the_playlist_data=JSON.parse(fetch(the_playlist_url));if(the_playlist_data.code==200){let the_pdata=the_playlist_data.data;let the_ptotal=the_pdata.total;let the_pcount=the_pdata.count;let the_ptotal_page=the_pdata.total_page;let the_plists=the_pdata.list;let vod_play={};let playList="";let vodItems=[];the_plists.forEach(function(plist,pindex){if(parseInt(plist.isIntact)==1){vodItems.push((plist.t4||"")+"$"+urlDeal("https://www.mgtv.com"+item.url||""))}});if(vodItems.length>0){playList=vodItems.join("#")}if(playList.length>0){vod_play["mgtv"]=playList;let tabs=Object.keys(vod_play);let playUrls=[];for(let id in tabs){print("id:"+id);playUrls.push(vod_play[tabs[id]])}if(tabs.length>0){let vod_play_from=tabs.join("$$$");let vod_play_url=playUrls.join("$$$");base_vod.vod_play_from=vod_play_from;base_vod.vod_play_url=vod_play_url}VOD=base_vod;console.log(base_vod)}}}',
+    二级: `js:
+//let html = JSON.parse(fetch(input, fetch_params));
+//let the_url = input;
+//https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
+let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
+let the_regex = /\/b\/(\d+)\/(\d+)\.html/;
+print(input);
+let the_match = the_origin_url.match(the_regex);
+let the_vid;
+let the_cid;
+let base_vod;
+if (the_match) {
+    the_cid = the_match[1]; // "611790"
+    the_vid = the_match[2]; // "21155332"
+    the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
+    let the_info_data = JSON.parse(fetch(the_info_url));
+    if (the_info_data.code == 200) {
+        let the_vdata = the_info_data.data;
+        let the_vdata_info = the_vdata.info;
+        base_vod = {
+            vod_id: the_origin_url,
+            vod_name: the_vdata_info.title,
+            type_name: the_vdata_info.detail.kind,
+            vod_actor: the_vdata_info.detail.leader,
+            vod_director: the_vdata_info.detail.presenter,
+            vod_content: the_vdata_info.detail.story,
+            vod_remarks: the_vdata_info.detail.join(","),
+            vod_pic: the_vdata_info.clipImage
+        };
+    }
+    let the_page = 0;
+    let the_size = 30;
+    //https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=21155332&page=0&size=30&platform=4&src=mgtv
+    let the_playlist_url = "https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=" + the_vid + "&page=" + the_page + "&size=" + the_size + "&platform=4&src=mgtv";
+    let the_playlist_data = JSON.parse(fetch(the_playlist_url));
+    if (the_playlist_data.code == 200) {
+        let the_pdata = the_playlist_data.data;
+        let the_ptotal = the_pdata.total;
+        let the_pcount = the_pdata.count;
+        let the_ptotal_page = the_pdata.total_page;
+        let the_plists = the_pdata.list;
+        let vod_play = {};
+        let playList = "";
+        let vodItems = [];
+        the_plists.forEach(function (plist, pindex) {
+            if (parseInt(plist.isIntact) == 1) {
+                vodItems.push((plist.t4 || "") + "$" + urlDeal("https://www.mgtv.com" + item.url || ""))
+            }
+
+        });
+        if (vodItems.length > 0) {
+            playList = vodItems.join("#")
+        }
+        if (playList.length > 0) {
+			
+            vod_play["mgtv"] = playList;
+            //
+            let tabs = Object.keys(vod_play);
+            let playUrls = [];
+            for (let id in tabs) {
+                print("id:" + id);
+                playUrls.push(vod_play[tabs[id]])
+            }
+            if (tabs.length > 0) {
+                let vod_play_from = tabs.join("$$$");
+                let vod_play_url = playUrls.join("$$$");
+                base_vod.vod_play_from = vod_play_from;
+                base_vod.vod_play_url = vod_play_url
+            }
+            VOD = base_vod;
+            console.log(base_vod);
+        }
+
+    }
+}
+
+	`,
     搜索: '',
 }
