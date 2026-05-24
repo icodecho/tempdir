@@ -17,7 +17,7 @@ var rule = {
     limit: 20,
     play_parse: false,
     // 手动调用解析请求json的url,此lazy不方便
-    // lazy:'js:print(input);fetch_params.headers["user-agent"]=MOBILE_UA;let html=request(input);let rurl=html.match(/window\\.open\\(\'(.*?)\',/)[1];rurl=urlDeal(rurl);input={parse:1,url:rurl};',
+    // lazy:'js:print(input);fetch_params.headers["user-agent"]=MOBILE_UA;var html=request(input);var rurl=html.match(/window\\.open\\(\'(.*?)\',/)[1];rurl=urlDeal(rurl);input={parse:1,url:rurl};',
     //lazy:'js:input={parse:1,jx:1,url:input};',
     // 推荐:'.list_item;img&&alt;img&&src;a&&Text;a&&data-float',
     // 预处理:'rule_fetch_params.headers.Cookie = "xxxx";',
@@ -45,16 +45,20 @@ var the_reqOptions01 = {
 if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
-    let the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
+	print("-------------");
+	print(the_cid);
+	print(the_vid);
+	print("-------------");
+    var the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
 	print("-------------");
 	print(the_info_url);
 	print("-------------");
-	let the_req_ret_raw = fetch(the_info_url, the_reqOptions01);
+	var the_req_ret_raw = fetch(the_info_url, the_reqOptions01);
 	print(the_req_ret_raw);
-    let the_info_data = JSON.parse(the_req_ret_raw);
+    var the_info_data = JSON.parse(the_req_ret_raw);
     if (the_info_data.code == 200) {
-        let the_vdata = the_info_data.data;
-        let the_vdata_info = the_vdata.info;
+        var the_vdata = the_info_data.data;
+        var the_vdata_info = the_vdata.info;
         base_vod = {
             vod_id: the_origin_url,
             vod_name: the_vdata_info.title,
@@ -66,23 +70,23 @@ if (the_match) {
             vod_pic: the_vdata_info.clipImage
         };
     }
-    let the_page = 0;
-    let the_size = 30;
+    var the_page = 0;
+    var the_size = 30;
     //https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=21155332&page=0&size=30&platform=4&src=mgtv
-    let the_playlist_url = "https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=" + the_vid + "&page=" + the_page + "&size=" + the_size + "&platform=4&src=mgtv";
-    let the_playlist_data = JSON.parse(fetch(the_playlist_url, {
+    var the_playlist_url = "https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=" + the_vid + "&page=" + the_page + "&size=" + the_size + "&platform=4&src=mgtv";
+    var the_playlist_data = JSON.parse(fetch(the_playlist_url, {
                 method: "GET",
                 redirect: "follow"
             }));
     if (the_playlist_data.code == 200) {
-        let the_pdata = the_playlist_data.data;
-        let the_ptotal = the_pdata.total;
-        let the_pcount = the_pdata.count;
-        let the_ptotal_page = the_pdata.total_page;
-        let the_plists = the_pdata.list;
-        let vod_play = {};
-        let playList = "";
-        let vodItems = [];
+        var the_pdata = the_playlist_data.data;
+        var the_ptotal = the_pdata.total;
+        var the_pcount = the_pdata.count;
+        var the_ptotal_page = the_pdata.total_page;
+        var the_plists = the_pdata.list;
+        var vod_play = {};
+        var playList = "";
+        var vodItems = [];
         the_plists.forEach(function (plist, pindex) {
             if (parseInt(plist.isIntact) == 1) {
                 vodItems.push((plist.t4 || "") + "$" + urlDeal("https://www.mgtv.com" + item.url || ""))
@@ -96,15 +100,15 @@ if (the_match) {
 
             vod_play["mgtv"] = playList;
             //
-            let tabs = Object.keys(vod_play);
-            let playUrls = [];
-            for (let id in tabs) {
+            var tabs = Object.keys(vod_play);
+            var playUrls = [];
+            for (var id in tabs) {
                 print("id:" + id);
                 playUrls.push(vod_play[tabs[id]])
             }
             if (tabs.length > 0) {
-                let vod_play_from = tabs.join("$$$");
-                let vod_play_url = playUrls.join("$$$");
+                var vod_play_from = tabs.join("$$$");
+                var vod_play_url = playUrls.join("$$$");
                 base_vod.vod_play_from = vod_play_from;
                 base_vod.vod_play_url = vod_play_url
             }
