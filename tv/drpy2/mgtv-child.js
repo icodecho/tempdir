@@ -39,11 +39,12 @@ var rule = {
         list_url: ''
     },
 ******/
-    'js:
+    二级: `js:
 //let html = JSON.parse(fetch(input, fetch_params));
 //let the_url = input;
 //https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child
-let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
+//let the_origin_url = "https://www.mgtv.com/b/611790/21155332.html?fpa=1566&fpos=&lastp=ch_child";
+let the_origin_url = the_url;
 let the_regex = /\/b\/(\d+)\/(\d+)\.html/;
 let the_match = the_origin_url.match(the_regex);
 let the_vid;
@@ -53,7 +54,7 @@ if (the_match) {
     the_cid = the_match[1]; // "611790"
     the_vid = the_match[2]; // "21155332"
     the_info_url = "https://pcweb.api.mgtv.com/video/info?allowedRC=1&vid=" + the_vid + "&cid=" + the_cid + "&type=b&_support=10000000";
-    let the_info_data = JSON.parse(fetch(the_info_url));
+    let the_info_data = JSON.parse(fetch(the_info_url,fetch_params));
     if (the_info_data.code == 200) {
         let the_vdata = the_info_data.data;
         let the_vdata_info = the_vdata.info;
@@ -72,7 +73,7 @@ if (the_match) {
     let the_size = 30;
     //https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=21155332&page=0&size=30&platform=4&src=mgtv
     let the_playlist_url = "https://pcweb.api.mgtv.com/episode/list?_support=10000000&version=5.5.35&video_id=" + the_vid + "&page=" + the_page + "&size=" + the_size + "&platform=4&src=mgtv";
-    let the_playlist_data = JSON.parse(fetch(the_playlist_url));
+    let the_playlist_data = JSON.parse(fetch(the_playlist_url,fetch_params));
     if (the_playlist_data.code == 200) {
         let the_pdata = the_playlist_data.data;
         let the_ptotal = the_pdata.total;
@@ -112,6 +113,7 @@ if (the_match) {
 		//console.log(base_vod);
 
     }
-}',
+}
+    `,
     搜索: '',
 }
